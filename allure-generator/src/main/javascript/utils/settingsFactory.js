@@ -1,7 +1,7 @@
 import LocalStorageModel from '../data/localstorage/LocalStorageModel';
 
 const globalSettingsDefaults = {
-    language: 'en',
+    language: 'en-AU',
     sidebarCollapsed: false,
     sideBySidePosition: [50, 50]
 };
