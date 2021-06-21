@@ -1,9 +1,9 @@
 import LocalStorageModel from "../data/localstorage/LocalStorageModel";
 
 const globalSettingsDefaults = {
-  language: "en",
-  sidebarCollapsed: false,
-  sideBySidePosition: [50, 50],
+    language: 'en-AU',
+    sidebarCollapsed: false,
+    sideBySidePosition: [50, 50]
 };
 
 const treePluginDefaults = {
