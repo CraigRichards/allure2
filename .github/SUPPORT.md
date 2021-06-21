@@ -8,7 +8,7 @@ but the following resources are available below, thanks for understanding.
 ## Real-time Chat
 
 * [Gitter ENG](https://gitter.im/allure-framework/allure-core)
-* [Telegram RU](https://t.me/allure_ru)
+* [Gitter RU](https://gitter.im/allure-framework/allure-ru)
 
 ## Stack Overflow
 

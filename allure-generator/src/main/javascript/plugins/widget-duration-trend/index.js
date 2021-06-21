@@ -1,4 +1,9 @@
-import TrendCollection from "../../data/trend/TrendCollection";
-import DurationTrendWidgetView from "./DurationTrendWidgetView";
+import DurationTrendWidgetView from './DurationTrendWidgetView';
+import TrendCollection from '../../data/trend/TrendCollection';
 
-allure.api.addWidget("graph", "duration-trend", DurationTrendWidgetView, TrendCollection);
+allure.api.addWidget(
+    'graph',
+    'duration-trend',
+    DurationTrendWidgetView,
+    TrendCollection
+);

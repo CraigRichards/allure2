@@ -4,19 +4,19 @@ import org.gradle.kotlin.dsl.support.unzipTo
 
 plugins {
     application
-    id("nebula.ospackage") version "8.5.6"
+    id("nebula.ospackage") version "8.4.1"
 }
 
 description = "Allure Commandline"
 
 application {
-    mainClass.set("io.qameta.allure.CommandLine")
+    mainClassName = "io.qameta.allure.CommandLine"
 }
 
 distributions {
     main {
         contents {
-            from(tasks.named("copyPlugins")) {
+            from(tasks.getByName("copyPlugins")) {
                 into("plugins")
             }
         }
@@ -78,7 +78,6 @@ ospackage {
             "openjdk8-jre-headless | openjdk-8-jre | openjdk-8-jdk | " +
             "oracle-java8-installer | oracle-java8-installer")
 
-    // Remove closureOf when https://github.com/nebula-plugins/gradle-ospackage-plugin/issues/399 is fixed
     from("${pack}/bin", closureOf<CopySpec> {
         into("${dest}/bin")
         fileMode = 0x168
@@ -105,16 +104,6 @@ val buildRpm by tasks.existing(Rpm::class) {
     dependsOn(preparePackageOutput)
 }
 
-publishing {
-    publications {
-        named<MavenPublication>("maven") {
-            artifact(tasks.distZip)
-            artifact(tasks.distTar)
-        }
-    }
-}
-
-
 dependencies {
     allurePlugin(project(path = ":behaviors-plugin", configuration = "allurePlugin"))
     allurePlugin(project(path = ":custom-logo-plugin", configuration = "allurePlugin"))
@@ -138,6 +127,8 @@ dependencies {
     testImplementation("io.qameta.allure:allure-junit-platform")
     testImplementation("org.apache.commons:commons-lang3")
     testImplementation("org.assertj:assertj-core")
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
     testImplementation("org.mockito:mockito-core")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }

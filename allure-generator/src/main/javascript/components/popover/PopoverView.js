@@ -1,8 +1,10 @@
-import "./styles.scss";
-import { className } from "../../decorators";
-import TooltipView from "../tooltip/TooltipView";
+import './styles.scss';
+import TooltipView from '../tooltip/TooltipView';
+import {className} from '../../decorators';
 
-@className("popover")
-class PopoverView extends TooltipView {}
+@className('popover')
+class PopoverView extends TooltipView {
+
+}
 
 export default PopoverView;

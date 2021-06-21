@@ -1,20 +1,21 @@
-import { Model } from "backbone";
+import {Model} from 'backbone';
 
 export default class WidgetsModel extends Model {
-  initialize(model, options) {
-    this.options = options;
-  }
 
-  url() {
-    return `widgets/${this.options.name}.json`;
-  }
+    initialize(model, options) {
+        this.options = options;
+    }
 
-  parse(data) {
-    return Array.isArray(data) ? { items: data } : data;
-  }
+    url() {
+        return `widgets/${this.options.name}.json`;
+    }
 
-  getWidgetData(name) {
-    const items = this.get(name);
-    return new Model(Array.isArray(items) ? { items } : items);
-  }
+    parse(data) {
+        return Array.isArray(data) ? {items: data} : data;
+    }
+
+    getWidgetData(name) {
+        const items = this.get(name);
+        return new Model(Array.isArray(items) ? {items} : items);
+    }
 }

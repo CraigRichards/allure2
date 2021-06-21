@@ -1,19 +1,13 @@
 name: "Verify type labels"
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, labeled, unlabeled, synchronize]
 
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: baev/action-label-verify@main
+      - uses: zwaldowski/match-label-action@v2
         with:
-          allowed: |
-            type:bug
-            type:improvement
-            type:internal
-            type:invalid
-            type:new feature
-            type:dependencies
+          allowed: 'type:bug, type:enhancement, type:new feature'
